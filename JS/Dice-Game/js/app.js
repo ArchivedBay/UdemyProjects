@@ -9,7 +9,11 @@
 - The first player to reach 100 points on PLAYER score wins
 
 TODO: add victory conditions
-FIXME: if new-game is pressed on player 2's turn ,round-score does not reset. look in newGame() logic to find.
+TODO: look into a nicer way of coding the newGame function.
+
+# FIXME: if new-game is pressed on player 2's turn ,round-score does not reset. look in newGame() logic to find.
+       NOTE:temporary solution found, manually setting active player to both 0 and 1 and updating the screen each time
+            after resetting the round score since round score relies on the active player to update the DOM
 */
 
 //initial setup
@@ -17,11 +21,13 @@ let playerScores, roundScore, activePlayer, diceVal;
 
 function newGame(){
     playerScores = [0,0]; //arr[0] = p1      arr[1] = p2
-    roundScore = 0;  //one shared for both players
-    activePlayer = 0; // 0=P1, 1=P2
+    activePlayer = 1;   // in order to temporarily fix newGame() bug hardcode player selection right now
+    roundScore = 0;     // this is for forcibly resetting both roundScore boxes.
+    updateScreen();
+    activePlayer = 0;
+    roundScore = 0;
     diceVal = 1;
     updateScreen();
-    // Currently a bug where if game is reset on player 2's turn, roundScore does not update due to improper order here.
 }
 function startEventListeners(){
     let  //attach event listeners to all of our buttons
