@@ -1,3 +1,4 @@
+// V2.5.0
 /*   '#' denotes items completed in this version
 # The game has 2 players 
 # In each turn, a player rolls a dice as many times as they wish. 
